@@ -1,20 +1,49 @@
 import javax.swing.JFrame; //JFrameクラスをインポート
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.print.attribute.standard.JobImpressions;
+import javax.swing.JButton;
+import java.awt.Container;
+import java.awt.Color;
+import java.awt.BorderLayout;
 
-class JFrame_Sample {
+class JFrame_Sample extends JFrame {
   public static void main(String[] args) {
 
-    JFrame frame1 = new JFrame(); // JFrameクラスからオブジェクト(frame)を作成
-    frame1.setTitle("Flame1"); // frameのタイトルを設定
-    frame1.setSize(500, 500); // サイズを指定
-    frame1.setLocation(100, 100); // 表示位置の設定
-    frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // ボタンクリックでflameを終了
+    JFrame_Sample frame1 = new JFrame_Sample("FLAME1"); // JFrameクラスからオブジェクト(frame)を作成
     frame1.setVisible(true); // trueでフレームを表示する(デフォルトでは非表示)
 
-    JFrame frame2 = new JFrame("Flame2"); // オブジェクト作成時にタイトル設定
-    frame2.setSize(600, 400);
-    frame2.setLocationRelativeTo(null); // nullでセンター表示
-    frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    frame2.setVisible(true); 
+  }
 
+  // J Frameクラスを継承したサブクラスを作成
+  JFrame_Sample(String title) {
+    setTitle(title);
+    setSize(600, 400);
+    setLocationRelativeTo(null); // nullでセンター表示
+    // setBounds(100, 100, 500, 500); // 位置とサイズを同時設定
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+    JPanel panel = new JPanel();
+
+    JLabel label = new JLabel("Name");
+    JTextField text = new JTextField(20);
+    panel.add(label);
+    panel.add(text);
+
+    JPanel panel2 = new JPanel();
+
+    JButton button1 = new JButton("Opne");
+    JButton button2 = new JButton("Cancel");
+    JButton button3 = new JButton("Help");
+
+    panel2.add(button1);
+    panel2.add(button2);
+    panel2.add(button3);
+
+    Container contentPane = getContentPane();
+    contentPane.setBackground(Color.ORANGE);
+    contentPane.add(panel, BorderLayout.NORTH);
+    contentPane.add(panel2, BorderLayout.CENTER);
   }
 }
