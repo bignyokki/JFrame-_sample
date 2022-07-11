@@ -1,12 +1,12 @@
 import javax.swing.JFrame; //JFrameクラスをインポート
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.print.attribute.standard.JobImpressions;
+// import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Container;
 import java.awt.Color;
-import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.Dimension;
 
 class JFrame_Sample extends JFrame {
   public static void main(String[] args) {
@@ -23,6 +23,8 @@ class JFrame_Sample extends JFrame {
     setLocationRelativeTo(null); // nullでセンター表示
     // setBounds(100, 100, 500, 500); // 位置とサイズを同時設定
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+    setLayout(new FlowLayout());
 
     JPanel panel = new JPanel();
 
